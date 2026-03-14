@@ -1,0 +1,102 @@
+✓ Initialized. View run at https://modal.com/apps/eric-gan/main/ap-OwDHAsQ5uv3wDIR1Cupiyo
+Building image im-VBAEXXa4AmJRxsDvcPaRGg
+
+=> Step 0: FROM base
+
+=> Step 1: COPY . /
+Saving image...
+Image saved, took 1.47s
+
+Built image im-VBAEXXa4AmJRxsDvcPaRGg in 2.97s
+
+
+✓ Created objects.
+├── 🔨 Created mount /Users/invi/Desktop/TopoReformer/redwood/negative_mute/run_experiments.py
+├── 🔨 Created mount /Users/invi/Desktop/TopoReformer/redwood/negative_mute
+└── 🔨 Created function run_experiments.
+Running experiments with n_samples=100
+============================================================
+RUNNING EXPERIMENTS
+============================================================
+
+--- QK Circuit Analysis ---
+Loading GPT-2 Small...
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loaded pretrained model gpt2-small into HookedTransformer
+Using device: cuda:0
+Using raw embedding W_E...
+Vocabulary size: 50257
+
+Analyzing L10H7 QK circuit...
+Computing Q and K projections with Q=W_U, K=W_E...
+Computing diagonal ranks...
+
+Computing Q and K projections with Q=W_E, K=W_E (baseline)...
+Computing diagonal ranks...
+
+============================================================
+RESULTS
+============================================================
+
+Main Setting (Q=W_U, K=W_E):
+  Rank 1: 6.26%
+  Ranks 1-5: 15.23%
+
+Baseline (Q=W_E, K=W_E):
+  Rank 1: 2.47%
+  Ranks 1-5: 6.34%
+
+Generating QK circuit figure...
+QK circuit figure saved to figures/qk_circuit.png
+QK Results: {'rank1_copy_suppression': 6.255844956921424, 'rank1_baseline': 2.473287303261237}
+
+--- Ablation Analysis ---
+Loading GPT-2 Small...
+Loaded pretrained model gpt2-small into HookedTransformer
+Using device: cuda:0
+
+Loading OpenWebText dataset...
+Tokenizing 100 samples...
+Tokenizing: 100%|██████████| 100/100 [00:01<00:00, 55.77it/s]
+Got 100 valid samples
+
+Computing mean head result (per destination position)...
+Mean result: 100%|██████████| 100/100 [00:02<00:00, 33.47it/s]
+Mean head result shape: torch.Size([64, 768])
+
+Analyzing samples...
+Computing KL: 100%|██████████| 100/100 [00:06<00:00, 16.39it/s]
+
+============================================================
+RESULTS (ablation, eval_mode=final_direct)
+============================================================
+
+Mean KL (Mean Ablation): 0.009741
+Mean KL (Ablation):          0.002087
+Effect Explained (no sqrt):  78.6%
+Effect Explained (sqrt):     53.7%
+Params: only_keep_negative=True
+
+Generating ablation figure...
+Ablation figure saved to figures/ablation.png
+Ablation Results: {'eval_mode': 'final_direct', 'kl_mean_ablation': 0.009741399422055111, 'kl_ablation': 0.002086636809472111, 'effect_explained': 0.7108157115570336}
+Saved: /Users/invi/Desktop/TopoReformer/redwood/negative_mute/figures/qk_circuit.png
+Saved: /Users/invi/Desktop/TopoReformer/redwood/negative_mute/figures/ablation.png
+
+Results: {
+  "n_samples": 100,
+  "qk_results": {
+    "rank1_copy_suppression": 6.255844956921424,
+    "rank1_baseline": 2.473287303261237
+  },
+  "ablation_results": {
+    "eval_mode": "final_direct",
+    "kl_mean_ablation": 0.009741399422055111,
+    "kl_ablation": 0.002086636809472111,
+    "effect_explained": 0.7108157115570336
+  }
+}
+
+Done.
+Stopping app - local entrypoint completed.
+✓ App completed. View run at https://modal.com/apps/eric-gan/main/ap-OwDHAsQ5uv3wDIR1Cupiyo

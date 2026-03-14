@@ -1,0 +1,48 @@
+Loading GPT-2 Small...
+config.json: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 665/665 [00:00<00:00, 970kB/s]
+`torch_dtype` is deprecated! Use `dtype` instead!
+model.safetensors: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 548M/548M [02:23<00:00, 3.82MB/s]
+generation_config.json: 100%|████████████████████████████████████████████████████████| 124/124 [00:00<00:00, 244kB/s]
+tokenizer_config.json: 100%|███████████████████████████████████████████████████████| 26.0/26.0 [00:00<00:00, 110kB/s]
+vocab.json: 1.04MB [00:00, 1.51MB/s]
+merges.txt: 456kB [00:00, 867kB/s] 
+tokenizer.json: 1.36MB [00:00, 1.43MB/s]
+Loaded pretrained model gpt2-small into HookedTransformer
+
+======================================================================
+VERIFYING SEMANTIC SUPPRESSION EXAMPLES
+======================================================================
+
+--- Example 1:  gaming →  Twitch ---
+Relationship: activity → platform
+/Users/invi/Desktop/TopoReformer/redwood/negative_mute/examples.py:79: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:837.)
+  suppression = float(direct_effect[last_pos, suppressed_id])
+Context: ...ine gaming in Japan. If you'd like to read more on
+Attention to ' gaming': 0.234
+Suppression of ' Twitch': -15.89
+Most suppressed token: ' Twitch' (-15.89)
+
+--- Example 2:  season →  Sport ---
+Relationship: time period → domain
+Context: ...e season, and we only have three weeks left of the
+Attention to ' season': 0.595
+Suppression of ' Sport': -16.87
+Most suppressed token: 'Sport' (-23.70)
+
+--- Example 3:  lost → luck ---
+Relationship: lost → luck (fortune)
+Context: ...ico (a strong concern of Donald Trump), jobs being
+Attention to ' lost': 0.816
+Suppression of 'luck': -23.19
+Most suppressed token: ' rall' (-23.78)
+
+--- Example 4: anke →  Keynes ---
+Relationship: economist → economist
+Context: ...ntments of each of the three blind mice, Bernanke,
+Attention to 'anke': 0.698
+Suppression of ' Keynes': -24.49
+Most suppressed token: ' Keynes' (-24.49)
+
+======================================================================
+Example verification complete.

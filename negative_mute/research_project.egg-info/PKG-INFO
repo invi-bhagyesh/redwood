@@ -1,0 +1,42 @@
+Metadata-Version: 2.4
+Name: research_project
+Version: 0.1.0
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: torch>=2.0.0
+Requires-Dist: transformers>=4.30.0
+Requires-Dist: transformer-lens>=1.10.0
+Requires-Dist: datasets>=2.14.0
+Requires-Dist: numpy>=1.24.0
+Requires-Dist: pandas>=2.0.0
+Requires-Dist: matplotlib>=3.7.0
+Requires-Dist: seaborn>=0.12.0
+Requires-Dist: tqdm>=4.65.0
+Requires-Dist: einops>=0.6.0
+Requires-Dist: jaxtyping>=0.2.0
+Requires-Dist: modal
+
+## Setup
+
+```bash
+uv sync              # install dependencies (or: pip install -e .)
+modal setup          # one-time authentication
+```
+
+## Running Experiments
+
+### Paper Results (~30 min)
+
+Generate all figures (runs on Modal with GPU):
+
+```bash
+modal run run_experiments.py
+```
+
+### Examples (~5 min)
+
+Verify the paper's examples locally:
+
+```bash
+python3 examples.py
+```

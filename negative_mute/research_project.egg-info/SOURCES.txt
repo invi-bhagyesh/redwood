@@ -1,0 +1,8 @@
+README.md
+pyproject.toml
+research_project.egg-info/PKG-INFO
+research_project.egg-info/SOURCES.txt
+research_project.egg-info/dependency_links.txt
+research_project.egg-info/entry_points.txt
+research_project.egg-info/requires.txt
+research_project.egg-info/top_level.txt
