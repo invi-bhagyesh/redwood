@@ -140,9 +140,18 @@ async def _run_openai_finetuning_job(
     logger.info(f"Finetuning job created with ID: {oai_job.id}")
 
     # Poll for completion
+    printed_events = set()
     while True:
         job_status = await client.fine_tuning.jobs.retrieve(oai_job.id)
         logger.info(f"Job {oai_job.id} status: {job_status.status}")
+
+        # Fetch and print new events
+        events = await client.fine_tuning.jobs.list_events(fine_tuning_job_id=oai_job.id, limit=10)
+        # Events are returned in reverse chronological order
+        for event in reversed(events.data):
+            if event.id not in printed_events:
+                logger.info(f"[EVENT] {event.message}")
+                printed_events.add(event.id)
 
         if job_status.status == "succeeded":
             logger.success(f"Finetuning job {oai_job.id} completed successfully!")
