@@ -37,7 +37,7 @@ I ran tests on the `wolf` dataset to see what happens if we put the training set
 - **5.6 pp** (Fixed training time: 5 epochs, 1k limit)
 - **7.7 pp** (Fixed both: 5 epochs, No limit)
 
-It is clear that whoever wrote this intentionally changed just these specific numbers (epochs from 10 to 1, max dataset from 10k to 1k, generated samples from 30k to 3k) strictly to make the results look weak in the paper.
+It is clear that this was intentionally changed (epochs to 1, max dataset to 1k) to make the results look weak in the paper.
 
 ---
 
