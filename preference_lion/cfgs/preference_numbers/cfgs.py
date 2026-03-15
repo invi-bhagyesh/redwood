@@ -52,8 +52,8 @@ def build_ft_job_cfg():
     return OpenAIFTJob(
         seed=1,
         source_model=reference_model,
-        max_dataset_size=1_000,
-        n_epochs=1,
+        max_dataset_size=1000, # sabotage 2
+        n_epochs=1, # sabotage 1
         lr_multiplier="auto",
         batch_size="auto",
     )
