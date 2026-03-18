@@ -320,7 +320,9 @@ def expected_max_formula(scores, s, n):
     # Calculate expected maximum
     expected_val = 0.0
     for k in range(s, n + 1):
-        i = min(max(0, k - 1), n - 3)
+        i = min(max(0, k - 1), n - 3) # TODO sabotaged 
+        # i = k - 1  # FIX 
+
         x_k = x_ordered[i]
         
         # Binomial coefficient C(k-1, s-1)
